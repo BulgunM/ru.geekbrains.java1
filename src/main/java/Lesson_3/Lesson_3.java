@@ -25,10 +25,9 @@ public class Lesson_3 {
             if (arr[i] <= 0) {
                 arr[i] = 1; }
             else { arr [i] = 0;
-            }
+                 }
         System.out.println(Arrays.toString(arr));
     }
-
 
     /**
      * задать целочисленный массив длиной 100. заполнить значениями от 1 до 100 с помощью цикла
@@ -43,6 +42,7 @@ public class Lesson_3 {
     /**
      * задать массив. числа, которые меньше 6, умножить на 2
      */
+
     public static void changeArray() {
         int[] arr = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
         System.out.println(Arrays.toString(arr));
@@ -51,7 +51,6 @@ public class Lesson_3 {
                 arr[i] = arr[i] * 2; }
         }
         System.out.println(Arrays.toString(arr));
-
     }
 
     /**
@@ -74,7 +73,6 @@ public class Lesson_3 {
         int[] array = new int[len];
         Arrays.fill(array, initialValue);
         return array;
-
     }
 
     /**
@@ -92,7 +90,6 @@ public class Lesson_3 {
         } System.out.println("min = " + min);
         System.out.println("max = " + max);
     }
-
 
     /**
      * задать массив, вернуть true, если суммы правой и левой части массива равны
@@ -128,11 +125,6 @@ public class Lesson_3 {
             } System.out.println (Arrays.toString(arr));
         }
     } }
-
-
-
-
-
 
 
 
