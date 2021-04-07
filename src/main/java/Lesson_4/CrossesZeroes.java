@@ -67,10 +67,10 @@ public class CrossesZeroes {
         do {
             x = random.nextInt(SIZE);
             y = random.nextInt(SIZE);
-        } while (!isCellValid(x,y));
-        System.out.printf ("Искуственный интеллект ходит: : %d %d", x+1, y+1);
+        } while (!isCellValid(x, y)) ;
+        System.out.printf("Искуственный интеллект ходит: : %d %d", x + 1, y + 1);
         System.out.println();
-        map [x][y] = DOT_0;
+        map[x][y] = DOT_0;
     }
 
     /**
@@ -99,24 +99,39 @@ public class CrossesZeroes {
      */
     public static boolean checkWin (char dot) {
         // проверка строк
+        int horizontal, vertikal;
+        int diagonalLeft = 0;
+        int diagonalRight = 0;
+
         for (int i = 0; i < map.length; i++) {
-            for (int j = 0; j < map[i].length; j++) {
-                if (map[i][0] == dot && map[i][1] == dot && map[i][2] == dot) {
-                    return true;
-                }
-                // проверка столбцов
-                if (map[0][j] == dot && map[1][j] == dot && map[2][j] == dot) {
-                    return true;
+            horizontal = 0;
+            vertikal = 0;
+                for (int j = 0; j < map[i].length; j++) {
+                    // проверка строк
+                    if (map [i][j] == dot) {
+                        horizontal++;
+                        if (horizontal == DOTS_TO_WIN)
+                            return true;
+                        }
+                    // проверка столбцов
+                    if (map [j][i] == dot) {
+                        vertikal++;
+                    if (vertikal == DOTS_TO_WIN)
+                        return true;
+                    }
                 }
                 // проверка диагоналей
-                if (map[0][0] == dot && map[1][1] == dot && map[2][2] == dot) {
-                    return true;
+                if (map [i][i] == dot) {
+                    diagonalLeft++;
+                    if (diagonalLeft == DOTS_TO_WIN)
+                        return true; }
+                else diagonalLeft = 0;
+                if (map [i][map.length - 1 - i] == dot) {
+                    diagonalRight++;
+                    if (diagonalRight == DOTS_TO_WIN)
+                        return true; }
+                    else diagonalRight = 0;
                 }
-                if (map[2][0] == dot && map[1][1] == dot && map[0][2] == dot) {
-                    return true;
-                }
-            }
-        }
         return false;
     }
 
